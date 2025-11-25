@@ -26,9 +26,9 @@ public class HomeController {
         return "home.html";
     }
 
-//    @RequestMapping("/movie")
-//    public String displayMoviePage(@RequestParam long id, Model model) {
-//        model.addAttribute("movie", movieService.getMovieById(id));
-//        return "movie.html";
-//    }
+    @RequestMapping("/movie")
+    public String displayMoviePage(@RequestParam long id, Model model) {
+        model.addAttribute("movie", movieService.getMovieById(id));
+        return "movie.html";
+    }
 }

@@ -38,8 +38,8 @@ public class MovieServiceTests {
 
     @Test
     void testFindMovieById_MovieExists() {
-        Movie mockMovie = new Movie(11,"The Shawshank Redemption", 1,1994,"https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg");
-        Movie movie = movieService.getMovieById(11).orElse(new Movie(5555555, "OuI", 1, 2000, "r"));
+        Movie mockMovie = new Movie("The Shawshank Redemption", 1,1994,"https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg");
+        Movie movie = movieService.getMovieById(11).orElse(new Movie("OuI", 1, 2000, "r"));
 
         assertNotNull(movie);
         assertEquals(mockMovie.getTitle(), movie.getTitle());

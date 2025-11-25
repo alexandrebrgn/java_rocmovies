@@ -10,7 +10,13 @@ public class Customer {
     private Integer id;
 
     @Column(name = "NAME", length = 50, nullable = false, unique = false)
-    private Integer name;
+    private String name;
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    public Customer() {}
 
     public Integer getId() {
         return id;
@@ -20,11 +26,11 @@ public class Customer {
         this.id = id;
     }
 
-    public Integer getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Integer name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

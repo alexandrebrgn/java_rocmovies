@@ -15,5 +15,7 @@ public interface IMovieService {
 
     List<Movie> getMovieByStyle(Integer style);
 
+    List<Movie> addMovie(Movie movie);
+
     List<Movie> getMovieBetween(int start, int end);
 }

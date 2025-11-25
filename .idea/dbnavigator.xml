@@ -33,6 +33,7 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
       <object connection-id="12f3a23c-724d-4d20-b174-8936c6461566" object-ref="schemas/rocmovies/tables/movie" />
+      <object connection-id="12f3a23c-724d-4d20-b174-8936c6461566" object-ref="schemas/rocmovies/tables/borrow" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
@@ -45,6 +46,15 @@
       </filter>
       <filter id="0d000d6f-baab-4676-a806-7c33098e9998" name="Filter 1" temporary="false" custom-name="false" type="custom">
         <condition><![CDATA[id>0;<br>-- enter your custom conditions here]]></condition>
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="12f3a23c-724d-4d20-b174-8936c6461566" dataset="rocmovies.borrow" active-filter-id="b9ae2552-9a46-4c8c-a02a-7dbaa8414b04">
+      <filter id="87d86236-b0d5-49ce-80a8-12b248b1f760" name="Filter" temporary="false" custom-name="true" type="basic" join-type="AND" />
+      <filter id="b07e6b64-2ca2-44cb-b066-04012c98aac6" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+      <filter id="b9ae2552-9a46-4c8c-a02a-7dbaa8414b04" name="Filter 2" temporary="false" custom-name="false" type="custom">
+        <condition><![CDATA[id = 1;]]></condition>
       </filter>
     </filter-actions>
     <filter-actions connection-id="12f3a23c-724d-4d20-b174-8936c6461566" dataset="movies.movies" active-filter-id="7df93ffe-0ff5-494f-8292-03ac2947e30d">

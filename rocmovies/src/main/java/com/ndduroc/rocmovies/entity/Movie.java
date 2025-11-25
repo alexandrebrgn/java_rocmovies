@@ -3,7 +3,7 @@ package com.ndduroc.rocmovies.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "MOVIE")
+@Table(name = "movies")
 public class Movie {
 
     @Id
@@ -23,13 +23,14 @@ public class Movie {
     @Column(name = "IMAGE", length = 300, nullable = false, unique = false)
     private String image;
 
-    public Movie(int id, String title, Integer style, int productionYear, String image) {
-        this.id = id;
+    public Movie(String title, Integer style, int productionYear, String image) {
         this.title = title;
         this.style = style;
         this.productionYear = productionYear;
         this.image = image;
     }
+
+    public Movie() {}
 
     public String getTitle() {
         return title;

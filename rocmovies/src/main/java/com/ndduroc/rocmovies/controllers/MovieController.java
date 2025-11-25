@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/movie")
+@RequestMapping(value={"/", "/movies"})
 public class MovieController {
 
     @Autowired
@@ -38,7 +38,7 @@ public class MovieController {
     }
 
     @PostMapping
-    public List<Movie> createMovie(@RequestBody MovieDTO movieDTO) {
-        return movieService.addMovie(movieDTO);
+    public List<Movie> createMovie(@RequestBody Movie movie) {
+        return movieService.addMovie(movie);
     }
 }

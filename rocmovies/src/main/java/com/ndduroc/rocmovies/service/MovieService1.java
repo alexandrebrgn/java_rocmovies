@@ -1,5 +1,6 @@
 package com.ndduroc.rocmovies.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,6 +33,11 @@ public class MovieService1 implements IMovieService {
     }
 
     @Override
+    public List<Movie> addMovie(MovieDTO movieDTO) {
+        return List.of();
+    }
+
+    @Override
     public List<Movie> getMovieByStyle(Integer style) {
         return movieRepo.findAll()
                 .stream()
@@ -40,8 +46,8 @@ public class MovieService1 implements IMovieService {
     }
 
     @Override
-    public List<Movie> addMovie(MovieDTO movieDTO) {
-        return List.of();
+    public List<Movie> addMovie(Movie movie) {
+        return Collections.singletonList(movieRepo.save(movie));
     }
 
     @Override
