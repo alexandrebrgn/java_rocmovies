@@ -3,7 +3,7 @@ package com.ndduroc.rocmovies.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="STYLE")
+@Table(name="style")
 public class Style {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

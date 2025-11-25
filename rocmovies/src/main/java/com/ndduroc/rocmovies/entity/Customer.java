@@ -2,8 +2,11 @@ package com.ndduroc.rocmovies.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "CUSTOMER")
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,6 +14,13 @@ public class Customer {
 
     @Column(name = "NAME", length = 50, nullable = false, unique = false)
     private String name;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Borrow> borrows = new ArrayList<>();
+
+    public List<Borrow> getBorrows() {
+        return borrows;
+    }
 
     public Customer(String name) {
         this.name = name;

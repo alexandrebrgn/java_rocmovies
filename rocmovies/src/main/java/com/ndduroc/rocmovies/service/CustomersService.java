@@ -38,7 +38,13 @@ public class CustomersService {
         Movie movie = movieRepository.findById(movieId)
                 .orElseThrow(() -> new RuntimeException("Movie not found"));
 
-        Borrow borrow = new Borrow(new Date(), customer.getId(), movie.getIdMovie(), "ACTIVE");
+        Borrow borrow = new Borrow(new Date(), customer, movie.getIdMovie(), "ACTIVE");
         return borrowRepository.save(borrow);
+    }
+
+    public List<Borrow> getBorrowOfCustomer(Integer customerId) {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new RuntimeException("Customer not found"));
+        return customer.getBorrows();
     }
 }

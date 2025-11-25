@@ -5,28 +5,33 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "BORROW")
+@Table(name = "borrow")
 public class Borrow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "DATE", length = 50, nullable = false, unique = false)
+    @Column(name = "date", nullable = false, unique = false)
+    @Temporal(TemporalType.DATE)
     private Date date;
 
-    @Column(name="CUSTOMER_ID", length=50, nullable=false, unique=false)
-    private Integer customerId;
+//    @Column(name="customer_id", length=50, nullable=false, unique=false)
+//    private Integer customer;
 
-    @Column(name="MOVIE_ID", length=50, nullable=false, unique=false)
+    @Column(name="movie_id", length=50, nullable=false, unique=false)
     private Integer movieId;
 
-    @Column(name="STATUS", length=50, nullable=false, unique=false)
+    @Column(name="status", length=50, nullable=false, unique=false)
     private String status;
 
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable = false)  // This is the foreign key column in BORROW
+    private Customer customer;
 
-    public Borrow(Date date, Integer customerId, Integer movieId, String status) {
+
+    public Borrow(Date date, Customer customer, Integer movieId, String status) {
         this.date = date;
-        this.customerId = customerId;
+        this.customer = customer;
         this.movieId = movieId;
         this.status = status;
     }
@@ -49,12 +54,12 @@ public class Borrow {
         this.date = date;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
+    public Customer getCustomerId() {
+        return customer;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setCustomerId(Customer customer) {
+        this.customer = customer;
     }
 
     public Integer getMovieId() {

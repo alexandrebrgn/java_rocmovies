@@ -1,0 +1,25 @@
+meta {
+  name: create
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/rocmovies/movies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title" : "ouais",
+    "style" : 1,
+    "image" : "https://m.media-amazon.com/images/I/61pCWRdyhbL._AC_UF894,1000_QL80_.jpg",
+    "productionYear" : 2020
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -2,9 +2,7 @@ package com.ndduroc.rocmovies;
 
 import com.ndduroc.rocmovies.entity.Movie;
 import com.ndduroc.rocmovies.repository.MovieRepository;
-import com.ndduroc.rocmovies.service.IMovieService;
 import com.ndduroc.rocmovies.service.MovieService1;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,8 +10,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.Optional;
 
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

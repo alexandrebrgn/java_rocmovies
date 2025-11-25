@@ -3,12 +3,8 @@ package com.ndduroc.rocmovies.controllers;
 import com.ndduroc.rocmovies.entity.Borrow;
 import com.ndduroc.rocmovies.entity.BorrowRequestDTO;
 import com.ndduroc.rocmovies.entity.Customer;
-import com.ndduroc.rocmovies.entity.Movie;
-import com.ndduroc.rocmovies.repository.MovieRepository;
 import com.ndduroc.rocmovies.service.CustomersService;
-import com.ndduroc.rocmovies.service.IMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +20,11 @@ public class CustomerController {
     public List<Customer> GetAllMovies() {
         System.out.println("CustomerController");
         return custServ.getListCustomers();
+    }
+
+    @GetMapping("/{customerId}/borrows")
+    public List<Borrow> getBorrowsOfCustomer(@PathVariable Integer customerId) {
+        return custServ.getBorrowOfCustomer(customerId);
     }
 
     @PostMapping("/{customerId}/borrow")

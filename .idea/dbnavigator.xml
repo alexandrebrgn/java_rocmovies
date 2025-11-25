@@ -31,10 +31,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="12f3a23c-724d-4d20-b174-8936c6461566" object-ref="schemas/rocmovies/tables/movie" />
-      <object connection-id="12f3a23c-724d-4d20-b174-8936c6461566" object-ref="schemas/rocmovies/tables/borrow" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="12f3a23c-724d-4d20-b174-8936c6461566" />
