@@ -1,0 +1,44 @@
+package com.ndduroc.rocmovies.controllers;
+import com.ndduroc.rocmovies.entity.Movie;
+import com.ndduroc.rocmovies.entity.MovieDTO;
+import com.ndduroc.rocmovies.service.IMovieService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/movie")
+public class MovieController {
+
+    @Autowired
+    private IMovieService movieService;
+
+    @GetMapping("")
+    public List<Movie> GetAllMovies() {
+        return movieService.getListMovies();
+    }
+
+    @GetMapping("/{id}")
+    public String displayMoviePage(@PathVariable("id") long movieId, Model model) {
+        Movie movie = movieService.getMovieById(movieId).get();
+        System.out.println(movie);
+        if (movie != null) {
+            model.addAttribute("movie", movie);
+            return "movie.html";
+        } else {
+            return "home.html";
+        }
+    }
+
+    @PostMapping
+    public List<Movie> createMovie(@RequestBody MovieDTO movieDTO) {
+        return movieService.addMovie(movieDTO);
+    }
+}

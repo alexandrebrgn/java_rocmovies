@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fragments</title>
+</head>
+<body>
+<div th:fragment="header">
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg">
+        <div class="max-w-7xl mx-auto py-6 px-8">
+            <h1 class="text-4xl font-bold text-white">🎬 Movie Library</h1>
+            <p class="text-indigo-100 mt-2">Découvrez vos films préférés</p>
+        </div>
+    </header>
+</div>
+
+<div th:fragment="footer">
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2025 - Mon site de films</p>
+    </footer>
+</div>
+
+</body>
+</html>

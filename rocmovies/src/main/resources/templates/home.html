@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Movies</title>
+</head>
+<body class="bg-gray-100">
+
+<header class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg">
+    <div class="max-w-7xl mx-auto py-6 px-8">
+        <h1 class="text-4xl font-bold text-white">🎬 Movie Library</h1>
+        <p class="text-indigo-100 mt-2">Découvrez vos films préférés</p>
+    </div>
+</header>
+
+<!-- Filtre -->
+<div class="max-w-7xl mx-auto px-8 py-6">
+    <form action="/rocmovies/home" method="get" class="flex gap-4 items-center">
+        <label for="style" class="text-lg font-medium">Filtrer par style :</label>
+        <select id="style" name="style" class="px-3 py-2 rounded-lg border border-gray-300">
+            <option value="">-- Tous --</option>
+            <option th:each="s : ${styles}" th:value="${s}" th:text="${s}"></option>
+        </select>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+            Filtrer
+        </button>
+    </form>
+</div>
+
+<!-- Grille des films -->
+<main class="max-w-7xl mx-auto px-8 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div th:each="movie : ${movies}" class="relative rounded-xl shadow-lg overflow-hidden group h-80">
+            <img th:src="${movie.image}" alt="" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition"></div>
+            <div class="relative z-10 p-5 flex flex-col h-full justify-between text-white">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2" th:text="${movie.title}"></h2>
+                    <p class="text-sm"><span class="font-medium">Genre :</span> <span th:text="${movie.style}"></span></p>
+                    <p class="text-sm"><span class="font-medium">Année :</span> <span th:text="${movie.productionYear}"></span></p>
+                </div>
+                <a th:href="@{/movie/{id}(id=${movie.idMovie})}"
+                   class="mt-4 bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors text-center">
+                    Voir détails
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-gray-800 text-white p-4 text-center">
+    <p>&copy; 2025 - Mon site de films</p>
+</footer>
+</body>
